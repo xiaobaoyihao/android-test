@@ -1,0 +1,60 @@
+apply plugin: 'com.android.library'
+
+apply plugin: 'com.github.dcendents.android-maven'
+apply plugin: 'com.jfrog.bintray'
+
+android {
+    compileSdkVersion 28
+
+    defaultConfig {
+        minSdkVersion 14
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    api 'com.squareup.retrofit2:retrofit:2.3.0'
+    api 'com.squareup.retrofit2:converter-gson:2.0.1'
+    api 'com.squareup.retrofit2:adapter-rxjava:2.0.1'
+    api 'io.reactivex:rxandroid:1.1.0'
+}
+
+
+ext {
+    bintrayRepo = 'framework'
+    bintrayName = 'framework'
+
+    publishedGroupId = 'com.fzm.framework'
+    libraryName = 'framework'
+    artifact = 'framework'
+
+    libraryDescription = 'a framework library form fzm'
+
+    siteUrl = 'https://github.com/xiaobaoyihao/android-upload-jcenter-demo'
+    gitUrl = 'https://github.com/xiaobaoyihao/android-upload-jcenter-demo.git'
+
+    libraryVersion = '0.0.5'
+
+    developerId = 'dbs'
+    developerName = 'dingbaosheng'
+    developerEmail = 'dbs@33.cn'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
+
+apply from : 'upload.gradle'
