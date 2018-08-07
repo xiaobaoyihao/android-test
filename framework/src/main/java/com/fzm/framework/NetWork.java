@@ -1,4 +1,4 @@
-package com.fzm.lib.net;
+package com.fzm.framework;
 
 public class NetWork {
 
